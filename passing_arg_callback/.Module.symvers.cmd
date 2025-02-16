@@ -1,0 +1,1 @@
+savedcmd_/home/karthik/device_driver_programs/passing_arg_callback/Module.symvers :=  scripts/mod/modpost -M -m -a      -o /home/karthik/device_driver_programs/passing_arg_callback/Module.symvers -T /home/karthik/device_driver_programs/passing_arg_callback/modules.order -i Module.symvers -e 

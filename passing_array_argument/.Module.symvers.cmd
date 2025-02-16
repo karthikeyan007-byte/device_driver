@@ -1,0 +1,1 @@
+savedcmd_/home/karthik/device_driver_programs/passing_array_argument/Module.symvers :=  scripts/mod/modpost -M -m -a      -o /home/karthik/device_driver_programs/passing_array_argument/Module.symvers -T /home/karthik/device_driver_programs/passing_array_argument/modules.order -i Module.symvers -e 
