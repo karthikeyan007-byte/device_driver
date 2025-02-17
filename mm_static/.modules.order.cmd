@@ -1,0 +1,1 @@
+savedcmd_/home/karthik/device_driver_programs/mm_static/modules.order := {   echo /home/karthik/device_driver_programs/mm_static/static.o; :; } > /home/karthik/device_driver_programs/mm_static/modules.order

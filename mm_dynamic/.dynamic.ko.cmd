@@ -1,0 +1,1 @@
+savedcmd_/home/karthik/device_driver_programs/mm_dynamic/dynamic.ko := ld -r -m elf_x86_64 -z noexecstack --no-warn-rwx-segments --build-id=sha1  -T scripts/module.lds -o /home/karthik/device_driver_programs/mm_dynamic/dynamic.ko /home/karthik/device_driver_programs/mm_dynamic/dynamic.o /home/karthik/device_driver_programs/mm_dynamic/dynamic.mod.o
