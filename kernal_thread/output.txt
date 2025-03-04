@@ -1,0 +1,49 @@
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/kernal_thread$ ls
+
+Makefile  thread.c
+
+--------------------------------------------------------------------------------------------------------------------------------
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/kernal_thread$ make
+
+make -C /lib/modules/6.8.0-52-generic/build M=/home/karthik/device_driver_programs/kernal_thread modules
+make[1]: Entering directory '/usr/src/linux-headers-6.8.0-52-generic'
+warning: the compiler differs from the one used to build the kernel
+  The kernel was built by: x86_64-linux-gnu-gcc-13 (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0
+  You are using:           gcc-13 (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0
+  CC [M]  /home/karthik/device_driver_programs/kernal_thread/thread.o
+  MODPOST /home/karthik/device_driver_programs/kernal_thread/Module.symvers
+  CC [M]  /home/karthik/device_driver_programs/kernal_thread/thread.mod.o
+  LD [M]  /home/karthik/device_driver_programs/kernal_thread/thread.ko
+  BTF [M] /home/karthik/device_driver_programs/kernal_thread/thread.ko
+Skipping BTF generation for /home/karthik/device_driver_programs/kernal_thread/thread.ko due to unavailability of vmlinux
+make[1]: Leaving directory '/usr/src/linux-headers-6.8.0-52-generic'
+
+--------------------------------------------------------------------------------------------------------------------------------
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/kernal_thread$ ls
+Makefile       Module.symvers  thread.ko   thread.mod.c  thread.o
+modules.order  thread.c        thread.mod  thread.mod.o
+--------------------------------------------------------------------------------------------------------------------------------
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/kernal_thread$ sudo insmod thread.ko
+[sudo] password for karthik: 
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/kernal_thread$ sudo dmesg
+
+[ 1794.700533] Major = 507 Minor = 0 
+[ 1794.700756] Device Driver Insert...Done!!!
+[ 1794.700763] In EmbeTronicX Thread Function 0
+[ 1795.731507] In EmbeTronicX Thread Function 1
+[ 1796.755745] In EmbeTronicX Thread Function 2
+[ 1797.779475] In EmbeTronicX Thread Function 3
+[ 1798.803794] In EmbeTronicX Thread Function 4
+[ 1799.827529] In EmbeTronicX Thread Function 5
+[ 1800.851694] In EmbeTronicX Thread Function 6
+[ 1801.875720] In EmbeTronicX Thread Function 7
+[ 1802.899694] In EmbeTronicX Thread Function 8
+[ 1803.923720] In EmbeTronicX Thread Function 9
+[ 1804.947465] In EmbeTronicX Thread Function 10
+[ 1805.971511] In EmbeTronicX Thread Function 11
+[ 1806.995481] In EmbeTronicX Thread Function 12
+[ 1808.019743] In EmbeTronicX Thread Function 13
+[ 1809.043469] In EmbeTronicX Thread Function 14
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+

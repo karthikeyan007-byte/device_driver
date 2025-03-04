@@ -1,0 +1,1 @@
+savedcmd_/home/karthik/device_driver_programs/IOCTL_method/device_driver.mod := printf '%s\n'   device_driver.o | awk '!x[$$0]++ { print("/home/karthik/device_driver_programs/IOCTL_method/"$$0) }' > /home/karthik/device_driver_programs/IOCTL_method/device_driver.mod

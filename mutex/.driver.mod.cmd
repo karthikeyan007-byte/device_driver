@@ -1,0 +1,1 @@
+savedcmd_/home/karthik/device_driver_programs/mutex/driver.mod := printf '%s\n'   driver.o | awk '!x[$$0]++ { print("/home/karthik/device_driver_programs/mutex/"$$0) }' > /home/karthik/device_driver_programs/mutex/driver.mod

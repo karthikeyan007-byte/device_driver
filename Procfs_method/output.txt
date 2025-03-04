@@ -1,0 +1,61 @@
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/Procfs_method$ make
+
+make -C /lib/modules/6.8.0-52-generic/build M=/home/karthik/device_driver_programs/Procfs_method modules
+make[1]: Entering directory '/usr/src/linux-headers-6.8.0-52-generic'
+warning: the compiler differs from the one used to build the kernel
+  The kernel was built by: x86_64-linux-gnu-gcc-13 (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0
+  You are using:           gcc-13 (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0
+  CC [M]  /home/karthik/device_driver_programs/Procfs_method/my_proc.o
+  MODPOST /home/karthik/device_driver_programs/Procfs_method/Module.symvers
+  CC [M]  /home/karthik/device_driver_programs/Procfs_method/my_proc.mod.o
+  LD [M]  /home/karthik/device_driver_programs/Procfs_method/my_proc.ko
+  BTF [M] /home/karthik/device_driver_programs/Procfs_method/my_proc.ko
+Skipping BTF generation for /home/karthik/device_driver_programs/Procfs_method/my_proc.ko due to unavailability of vmlinux
+make[1]: Leaving directory '/usr/src/linux-headers-6.8.0-52-generic'
+
+----------------------------------------------------------------------------------------------------------------------------
+
+
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/Procfs_method$ ls
+
+Makefile       Module.symvers  my_proc.ko   my_proc.mod.c  my_proc.o
+modules.order  my_proc.c       my_proc.mod  my_proc.mod.o
+
+----------------------------------------------------------------------------------------------------------------------------
+
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/Procfs_method$ sudo insmod my_proc.ko
+
+----------------------------------------------------------------------------------------------------------------------------
+
+
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/Procfs_method$ lsmod | grep my_proc
+
+my_proc                12288  0
+
+----------------------------------------------------------------------------------------------------------------------------
+
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/Procfs_method$ ls /proc/etx
+
+etx_proc
+
+----------------------------------------------------------------------------------------------------------------------------
+
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/Procfs_method$ echo "Hello Procfs" | sudo tee /proc/etx/etx_proc
+
+Hello Procfs
+
+----------------------------------------------------------------------------------------------------------------------------
+
+
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/Procfs_method$ cat /proc/etx/etx_proc
+
+Hello Procfs
+
+----------------------------------------------------------------------------------------------------------------------------
+
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/Procfs_method$ sudo rmmod my_proc 
+
+
+
+
+

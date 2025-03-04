@@ -1,0 +1,1 @@
+savedcmd_/home/karthik/device_driver_programs/Kernel_timer/Module.symvers :=  scripts/mod/modpost -M -m -a      -o /home/karthik/device_driver_programs/Kernel_timer/Module.symvers -T /home/karthik/device_driver_programs/Kernel_timer/modules.order -i Module.symvers -e 

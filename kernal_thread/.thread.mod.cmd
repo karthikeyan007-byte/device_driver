@@ -1,0 +1,1 @@
+savedcmd_/home/karthik/device_driver_programs/kernal_thread/thread.mod := printf '%s\n'   thread.o | awk '!x[$$0]++ { print("/home/karthik/device_driver_programs/kernal_thread/"$$0) }' > /home/karthik/device_driver_programs/kernal_thread/thread.mod

@@ -1,0 +1,1 @@
+/home/karthik/device_driver_programs/tasklet_static/tasklet_static.o

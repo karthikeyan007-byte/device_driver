@@ -1,0 +1,53 @@
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/Kernel_timer$ sudo insmod timer.ko
+[sudo] password for karthik: 
+
+
+
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/Kernel_timer$ sudo dmesg
+
+[ 9386.908296] Major = 507 Minor = 0 
+[ 9386.908438] Device Driver Insert...Done!!!
+[ 9392.200389] Timer Callback function Called [0]
+[ 9397.320415] Timer Callback function Called [1]
+[ 9402.441386] Timer Callback function Called [2]
+[ 9407.560387] Timer Callback function Called [3]
+[ 9412.680413] Timer Callback function Called [4]
+
+
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/Kernel_timer$ sudo dmesg | tail -20
+
+[ 9386.908296] Major = 507 Minor = 0 
+[ 9386.908438] Device Driver Insert...Done!!!
+[ 9392.200389] Timer Callback function Called [0]
+[ 9397.320415] Timer Callback function Called [1]
+[ 9402.441386] Timer Callback function Called [2]
+[ 9407.560387] Timer Callback function Called [3]
+[ 9412.680413] Timer Callback function Called [4]
+[ 9417.800410] Timer Callback function Called [5]
+[ 9422.920400] Timer Callback function Called [6]
+[ 9428.040432] Timer Callback function Called [7]
+[ 9433.160413] Timer Callback function Called [8]
+[ 9438.280389] Timer Callback function Called [9]
+
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/Kernel_timer$ sudo rmmod timer
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/Kernel_timer$ sudo dmesg | tail -20
+[ 9586.760385] Timer Callback function Called [38]
+[ 9591.880385] Timer Callback function Called [39]
+[ 9597.000415] Timer Callback function Called [40]
+[ 9602.120412] Timer Callback function Called [41]
+[ 9607.240410] Timer Callback function Called [42]
+[ 9612.360556] Timer Callback function Called [43]
+[ 9617.480408] Timer Callback function Called [44]
+[ 9622.600417] Timer Callback function Called [45]
+[ 9627.720386] Timer Callback function Called [46]
+[ 9632.840406] Timer Callback function Called [47]
+[ 9637.960411] Timer Callback function Called [48]
+[ 9643.080408] Timer Callback function Called [49]
+[ 9648.201385] Timer Callback function Called [50]
+[ 9653.320397] Timer Callback function Called [51]
+[ 9658.440419] Timer Callback function Called [52]
+[ 9663.560417] Timer Callback function Called [53]
+[ 9668.680701] Timer Callback function Called [54]
+[ 9673.800706] Timer Callback function Called [55]
+[ 9678.920514] Timer Callback function Called [56]
+[ 9678.965436] Device Driver Remove...Done!!!

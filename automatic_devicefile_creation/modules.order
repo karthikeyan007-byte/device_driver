@@ -1,0 +1,1 @@
+/home/karthik/device_driver_programs/automatic_devicefile_creation/auto.o

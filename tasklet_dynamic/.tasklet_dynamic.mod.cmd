@@ -1,0 +1,1 @@
+savedcmd_/home/karthik/device_driver_programs/tasklet_dynamic/tasklet_dynamic.mod := printf '%s\n'   tasklet_dynamic.o | awk '!x[$$0]++ { print("/home/karthik/device_driver_programs/tasklet_dynamic/"$$0) }' > /home/karthik/device_driver_programs/tasklet_dynamic/tasklet_dynamic.mod

@@ -1,0 +1,1 @@
+savedcmd_/home/karthik/device_driver_programs/Procfs_method/my_proc.ko := ld -r -m elf_x86_64 -z noexecstack --no-warn-rwx-segments --build-id=sha1  -T scripts/module.lds -o /home/karthik/device_driver_programs/Procfs_method/my_proc.ko /home/karthik/device_driver_programs/Procfs_method/my_proc.o /home/karthik/device_driver_programs/Procfs_method/my_proc.mod.o

@@ -1,0 +1,1 @@
+savedcmd_/home/karthik/device_driver_programs/char_device/char.mod := printf '%s\n'   char.o | awk '!x[$$0]++ { print("/home/karthik/device_driver_programs/char_device/"$$0) }' > /home/karthik/device_driver_programs/char_device/char.mod

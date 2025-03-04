@@ -1,0 +1,18 @@
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/tasklet_static$ sudo insmod tasklet_static.ko
+[sudo] password for karthik: 
+
+
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/tasklet_static$ sudo dmesg | tail -20
+[21434.852999] Initializing ETX Tasklet Driver
+[21434.853319] ETX Tasklet Driver Initialized Successfully!
+
+
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/tasklet_static$ sudo echo 1 > /sys/kernel/etx_sysfs/trigger_irq
+
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/tasklet_static$ sudo dmesg | tail -2
+[21815.172332] Initializing ETX Interrupt Driver with Tasklet
+[21815.172690] ETX Interrupt Driver with Tasklet Initialized Successfully!
+[21874.981324] ETX: Triggering IRQ Manually
+[21874.981341] ETX Interrupt Handler: Interrupt Occurred! Count = 1
+[21874.981429] ETX Tasklet: Processing deferred work. IRQ Count = 1
+

@@ -1,0 +1,1 @@
+savedcmd_/home/karthik/device_driver_programs/char_device/modules.order := {   echo /home/karthik/device_driver_programs/char_device/char.o; :; } > /home/karthik/device_driver_programs/char_device/modules.order

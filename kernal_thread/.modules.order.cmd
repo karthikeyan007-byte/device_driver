@@ -1,0 +1,1 @@
+savedcmd_/home/karthik/device_driver_programs/kernal_thread/modules.order := {   echo /home/karthik/device_driver_programs/kernal_thread/thread.o; :; } > /home/karthik/device_driver_programs/kernal_thread/modules.order

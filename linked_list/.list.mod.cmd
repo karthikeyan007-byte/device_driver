@@ -1,0 +1,1 @@
+savedcmd_/home/karthik/device_driver_programs/linked_list/list.mod := printf '%s\n'   list.o | awk '!x[$$0]++ { print("/home/karthik/device_driver_programs/linked_list/"$$0) }' > /home/karthik/device_driver_programs/linked_list/list.mod

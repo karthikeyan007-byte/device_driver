@@ -1,0 +1,1 @@
+savedcmd_/home/karthik/device_driver_programs/wait_queue/Module.symvers :=  scripts/mod/modpost -M -m -a      -o /home/karthik/device_driver_programs/wait_queue/Module.symvers -T /home/karthik/device_driver_programs/wait_queue/modules.order -i Module.symvers -e 

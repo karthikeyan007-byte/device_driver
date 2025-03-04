@@ -1,0 +1,37 @@
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/linked_list$ sudo insmod list.ko
+
+-------------------------------------------------------------------------------------------------------------------------
+
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/linked_list$ sudo dmesg | tail -20
+
+[12052.911983] Initializing Linked List Module
+[12052.911989] Added Device ID: 101
+[12052.911992] Added Device ID: 102
+[12052.911993] Added Device ID: 103
+[12052.911995] Device List:
+[12052.911996] Device ID: 101
+[12052.911998] Device ID: 102
+[12052.911999] Device ID: 103
+
+-------------------------------------------------------------------------------------------------------------------------
+
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/linked_list$ sudo rmmod list
+
+-------------------------------------------------------------------------------------------------------------------------
+
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/linked_list$ sudo dmesg | tail -20
+
+[12052.911983] Initializing Linked List Module
+[12052.911989] Added Device ID: 101
+[12052.911992] Added Device ID: 102
+[12052.911993] Added Device ID: 103
+[12052.911995] Device List:
+[12052.911996] Device ID: 101
+[12052.911998] Device ID: 102
+[12052.911999] Device ID: 103
+[12538.731203] Exiting Linked List Module
+[12538.731208] Deleting Device ID: 101
+[12538.731211] Deleting Device ID: 102
+[12538.731212] Deleting Device ID: 103
+
+-------------------------------------------------------------------------------------------------------------------------

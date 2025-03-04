@@ -1,0 +1,22 @@
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/read_write_spinlock$ sudo insmod rw_spin.ko
+[sudo] password for karthik: 
+
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/read_write_spinlock$ sudo dmesg | tail -20
+[  328.448016] Major = 507 Minor = 0 
+[  328.448339] Kthread1 Created Successfully...
+[  328.448480] Kthread2 Created Successfully...
+[  328.448489] In Thread Function2 : Read value 1
+[  328.448491] Device Driver Insert...Done!!!
+[  329.485633] In Thread Function2 : Read value 1
+[  330.509681] In Thread Function2 : Read value 2
+[  331.533694] In Thread Function2 : Read value 3
+[  332.557755] In Thread Function2 : Read value 5
+[  333.581664] In Thread Function2 : Read value 5
+[  334.605471] In Thread Function2 : Read value 6
+[  335.629717] In Thread Function2 : Read value 7
+[  336.653701] In Thread Function2 : Read value 8
+[  337.677460] In Thread Function2 : Read value 9
+[  338.701703] In Thread Function2 : Read value 10
+[  339.725685] In Thread Function2 : Read value 11
+[  340.749503] In Thread Function2 : Read value 12
+[  341.773656] In Thread Function2 : Read value 13

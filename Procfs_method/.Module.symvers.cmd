@@ -1,0 +1,1 @@
+savedcmd_/home/karthik/device_driver_programs/Procfs_method/Module.symvers :=  scripts/mod/modpost -M -m -a      -o /home/karthik/device_driver_programs/Procfs_method/Module.symvers -T /home/karthik/device_driver_programs/Procfs_method/modules.order -i Module.symvers -e 

@@ -1,0 +1,1 @@
+savedcmd_/home/karthik/device_driver_programs/automatic_devicefile_creation/Module.symvers :=  scripts/mod/modpost -M -m -a      -o /home/karthik/device_driver_programs/automatic_devicefile_creation/Module.symvers -T /home/karthik/device_driver_programs/automatic_devicefile_creation/modules.order -i Module.symvers -e 

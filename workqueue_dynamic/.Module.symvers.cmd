@@ -1,0 +1,1 @@
+savedcmd_/home/karthik/device_driver_programs/workqueue_dynamic/Module.symvers :=  scripts/mod/modpost -M -m -a      -o /home/karthik/device_driver_programs/workqueue_dynamic/Module.symvers -T /home/karthik/device_driver_programs/workqueue_dynamic/modules.order -i Module.symvers -e 

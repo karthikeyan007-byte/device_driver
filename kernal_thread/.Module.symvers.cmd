@@ -1,0 +1,1 @@
+savedcmd_/home/karthik/device_driver_programs/kernal_thread/Module.symvers :=  scripts/mod/modpost -M -m -a      -o /home/karthik/device_driver_programs/kernal_thread/Module.symvers -T /home/karthik/device_driver_programs/kernal_thread/modules.order -i Module.symvers -e 

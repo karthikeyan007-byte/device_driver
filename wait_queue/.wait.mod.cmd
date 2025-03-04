@@ -1,0 +1,1 @@
+savedcmd_/home/karthik/device_driver_programs/wait_queue/wait.mod := printf '%s\n'   wait.o | awk '!x[$$0]++ { print("/home/karthik/device_driver_programs/wait_queue/"$$0) }' > /home/karthik/device_driver_programs/wait_queue/wait.mod

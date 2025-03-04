@@ -1,0 +1,102 @@
+
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/wait_queue$ make
+
+make -C /lib/modules/6.8.0-52-generic/build M=/home/karthik/device_driver_programs/wait_queue modules
+make[1]: Entering directory '/usr/src/linux-headers-6.8.0-52-generic'
+warning: the compiler differs from the one used to build the kernel
+  The kernel was built by: x86_64-linux-gnu-gcc-13 (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0
+  You are using:           gcc-13 (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0
+  CC [M]  /home/karthik/device_driver_programs/wait_queue/wait.o
+  MODPOST /home/karthik/device_driver_programs/wait_queue/Module.symvers
+  CC [M]  /home/karthik/device_driver_programs/wait_queue/wait.mod.o
+  LD [M]  /home/karthik/device_driver_programs/wait_queue/wait.ko
+  BTF [M] /home/karthik/device_driver_programs/wait_queue/wait.ko
+Skipping BTF generation for /home/karthik/device_driver_programs/wait_queue/wait.ko due to unavailability of vmlinux
+make[1]: Leaving directory '/usr/src/linux-headers-6.8.0-52-generic'
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/wait_queue$ ls
+
+Makefile       Module.symvers  wait.ko   wait.mod.c  wait.o
+modules.order  wait.c          wait.mod  wait.mod.o
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/wait_queue$ sudo insmod wait.ko
+------------------------------------------------------------------------------------------------------------------------------------------
+
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/wait_queue$ sudo dmesg
+
+[ 5347.885027] Major = 507 Minor = 0 
+[ 5347.885286] Thread Created successfully
+[ 5347.885292] Device Driver Insert...Done!!!
+[ 5347.885298] Waiting For Event...
+[ 5434.300535] Device File Opened...!!!
+[ 5434.300560] Read Function
+[ 5434.300584] Device File Closed...!!!
+
+------------------------------------------------------------------------------------------------------------------------------------------
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/wait_queue$ sudo cat /dev/etx_device
+
+------------------------------------------------------------------------------------------------------------------------------------------
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/wait_queue$ sudo dmesg
+
+[ 5347.885027] Major = 507 Minor = 0 
+[ 5347.885286] Thread Created successfully
+[ 5347.885292] Device Driver Insert...Done!!!
+[ 5347.885298] Waiting For Event...
+[ 5434.300535] Device File Opened...!!!
+[ 5434.300560] Read Function
+[ 5434.300584] Device File Closed...!!!
+[ 5434.300588] Event Came From Read Function - 1
+[ 5434.300594] Waiting For Event...
+
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/wait_queue$ sudo cat /dev/etx_device
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/wait_queue$ sudo dmesg
+
+
+[ 5347.885027] Major = 507 Minor = 0 
+[ 5347.885286] Thread Created successfully
+[ 5347.885292] Device Driver Insert...Done!!!
+[ 5347.885298] Waiting For Event...
+[ 5434.300535] Device File Opened...!!!
+[ 5434.300560] Read Function
+[ 5434.300584] Device File Closed...!!!
+[ 5434.300588] Event Came From Read Function - 1
+[ 5434.300594] Waiting For Event...
+[ 5483.683237] Device File Opened...!!!
+[ 5483.683260] Read Function
+[ 5483.683284] Device File Closed...!!!
+[ 5483.683305] Event Came From Read Function - 2
+[ 5483.683320] Waiting For Event...
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/wait_queue$ sudo rmmod wait
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/wait_queue$ sudo dmesg
+
+[ 5347.885027] Major = 507 Minor = 0 
+[ 5347.885286] Thread Created successfully
+[ 5347.885292] Device Driver Insert...Done!!!
+[ 5347.885298] Waiting For Event...
+[ 5434.300535] Device File Opened...!!!
+[ 5434.300560] Read Function
+[ 5434.300584] Device File Closed...!!!
+[ 5434.300588] Event Came From Read Function - 1
+[ 5434.300594] Waiting For Event...
+[ 5483.683237] Device File Opened...!!!
+[ 5483.683260] Read Function
+[ 5483.683284] Device File Closed...!!!
+[ 5483.683305] Event Came From Read Function - 2
+[ 5483.683320] Waiting For Event...
+[ 5505.593382] Event Came From Exit Function
+[ 5505.593525] Device Driver Remove...Done!!!
+
+------------------------------------------------------------------------------------------------------------------------------------------

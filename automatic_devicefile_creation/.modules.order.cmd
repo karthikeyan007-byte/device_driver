@@ -1,0 +1,1 @@
+savedcmd_/home/karthik/device_driver_programs/automatic_devicefile_creation/modules.order := {   echo /home/karthik/device_driver_programs/automatic_devicefile_creation/auto.o; :; } > /home/karthik/device_driver_programs/automatic_devicefile_creation/modules.order

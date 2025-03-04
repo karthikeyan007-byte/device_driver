@@ -1,0 +1,1 @@
+savedcmd_/home/karthik/device_driver_programs/workqueue_dynamic/dynamic.mod := printf '%s\n'   dynamic.o | awk '!x[$$0]++ { print("/home/karthik/device_driver_programs/workqueue_dynamic/"$$0) }' > /home/karthik/device_driver_programs/workqueue_dynamic/dynamic.mod

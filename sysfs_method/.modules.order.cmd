@@ -1,0 +1,1 @@
+savedcmd_/home/karthik/device_driver_programs/sysfs_method/modules.order := {   echo /home/karthik/device_driver_programs/sysfs_method/device_driver.o; :; } > /home/karthik/device_driver_programs/sysfs_method/modules.order

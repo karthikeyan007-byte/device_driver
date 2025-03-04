@@ -1,0 +1,78 @@
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/sysfs_method$ ls
+
+device_driver.c    device_driver.mod.c  Makefile
+device_driver.ko   device_driver.mod.o  modules.order
+device_driver.mod  device_driver.o      Module.symvers
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/sysfs_method$ sudo insmod device_driver.ko
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/sysfs_method$ ls -l /sys/kernel
+total 0
+-r--r--r--   1 root root 4096 Feb 21 15:42 address_bits
+drwxr-xr-x   3 root root    0 Feb 21 15:42 boot_params
+drwxr-xr-x   2 root root    0 Feb 21 15:42 btf
+drwxr-xr-x   2 root root    0 Feb 21 15:42 cgroup
+drwxr-xr-x   3 root root    0 Feb 21 08:44 config
+-r--r--r--   1 root root 4096 Feb 21 15:42 cpu_byteorder
+-r--r--r--   1 root root 4096 Feb 21 15:42 crash_elfcorehdr_size
+drwx------  51 root root    0 Feb 21 08:44 debug
+drwxr-xr-x   2 root root    0 Feb 21 16:31 etx_sysfs
+-r--r--r--   1 root root 4096 Feb 21 15:42 fscaps
+drwxr-xr-x  15 root root    0 Feb 21 15:42 iommu_groups
+drwxr-xr-x  81 root root    0 Feb 21 16:04 irq
+-r--r--r--   1 root root 4096 Feb 21 15:42 kexec_crash_loaded
+-rw-r--r--   1 root root 4096 Feb 21 15:42 kexec_crash_size
+-r--r--r--   1 root root 4096 Feb 21 15:42 kexec_loaded
+drwxr-xr-x   2 root root    0 Feb 21 15:42 livepatch
+drwxr-xr-x   9 root root    0 Feb 21 15:42 mm
+-r--r--r--   1 root root  472 Feb 21 15:42 notes
+-r--r--r--   1 root root 4096 Feb 21 15:42 oops_count
+-rw-r--r--   1 root root 4096 Feb 21 15:42 profiling
+-rw-r--r--   1 root root 4096 Feb 21 15:42 rcu_expedited
+-rw-r--r--   1 root root 4096 Feb 21 15:42 rcu_normal
+drwxr-xr-x   2 root root    0 Feb 21 15:42 reboot
+drwxr-xr-x   5 root root    0 Feb 21 08:44 security
+drwxr-xr-x 383 root root    0 Feb 21 15:42 slab
+drwxr-xr-x   2 root root    0 Feb 21 15:42 software_nodes
+drwx------  10 root root    0 Feb 21 08:44 tracing
+-rw-r--r--   1 root root 4096 Feb 21 08:44 uevent_helper
+-r--r--r--   1 root root 4096 Feb 21 15:42 uevent_seqnum
+-r--r--r--   1 root root 4096 Feb 21 15:42 vmcoreinfo
+-r--r--r--   1 root root 4096 Feb 21 15:42 warn_count
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/sysfs_method$ ls -l /sys/kernel/etx_sysfs
+total 0
+-rw-rw---- 1 root root 4096 Feb 21 16:31 etx_value
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/sysfs_method$ sudo -i
+root@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~# cat /sys/kernel/etx_sysfs/etx_value
+
+0
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+root@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~# echo 123 | sudo tee /sys/kernel/etx_sysfs/etx_value
+
+123
+-----------------------------------------------------------------------------------------------------------------------------------------
+root@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~# cat /sys/kernel/etx_sysfs/etx_value
+
+123
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+root@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~# exit
+logout
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/sysfs_method$ sudo rmmod device_driver 
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/sysfs_method$ 
+

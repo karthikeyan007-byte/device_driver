@@ -1,0 +1,107 @@
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/mutex$ make
+
+make -C /lib/modules/6.8.0-52-generic/build M=/home/karthik/device_driver_programs/mutex modules
+make[1]: Entering directory '/usr/src/linux-headers-6.8.0-52-generic'
+warning: the compiler differs from the one used to build the kernel
+  The kernel was built by: x86_64-linux-gnu-gcc-13 (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0
+  You are using:           gcc-13 (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0
+  CC [M]  /home/karthik/device_driver_programs/mutex/driver.o
+  MODPOST /home/karthik/device_driver_programs/mutex/Module.symvers
+  CC [M]  /home/karthik/device_driver_programs/mutex/driver.mod.o
+  LD [M]  /home/karthik/device_driver_programs/mutex/driver.ko
+  BTF [M] /home/karthik/device_driver_programs/mutex/driver.ko
+Skipping BTF generation for /home/karthik/device_driver_programs/mutex/driver.ko due to unavailability of vmlinux
+make[1]: Leaving directory '/usr/src/linux-headers-6.8.0-52-generic'
+
+
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/mutex$ ls
+driver.c   driver.mod    driver.mod.o  Makefile       Module.symvers
+driver.ko  driver.mod.c  driver.o      modules.order
+
+
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/mutex$ sudo insmod driver.ko
+[sudo] password for karthik: 
+
+
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/mutex$ sudo dmesg
+
+[ 8405.463920] Major = 507 Minor = 0 
+[ 8405.464271] Kthread1 Created Successfully...
+[ 8405.464279] In EmbeTronicX Thread Function1 1
+[ 8405.464362] Kthread2 Created Successfully...
+[ 8405.464367] Device Driver Insert...Done!!!
+[ 8405.464370] In EmbeTronicX Thread Function2 2
+[ 8406.477473] In EmbeTronicX Thread Function1 3
+[ 8406.477487] In EmbeTronicX Thread Function2 4
+[ 8407.501648] In EmbeTronicX Thread Function1 5
+[ 8407.501662] In EmbeTronicX Thread Function2 6
+[ 8408.525473] In EmbeTronicX Thread Function2 7
+[ 8408.525488] In EmbeTronicX Thread Function1 8
+[ 8409.549491] In EmbeTronicX Thread Function2 9
+[ 8409.549679] In EmbeTronicX Thread Function1 10
+[ 8410.573495] In EmbeTronicX Thread Function2 11
+[ 8410.573510] In EmbeTronicX Thread Function1 12
+
+
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/mutex$ sudo dmesg
+
+[ 8405.463920] Major = 507 Minor = 0 
+[ 8405.464271] Kthread1 Created Successfully...
+[ 8405.464279] In EmbeTronicX Thread Function1 1
+[ 8405.464362] Kthread2 Created Successfully...
+[ 8405.464367] Device Driver Insert...Done!!!
+[ 8405.464370] In EmbeTronicX Thread Function2 2
+[ 8406.477473] In EmbeTronicX Thread Function1 3
+[ 8406.477487] In EmbeTronicX Thread Function2 4
+[ 8407.501648] In EmbeTronicX Thread Function1 5
+[ 8407.501662] In EmbeTronicX Thread Function2 6
+[ 8408.525473] In EmbeTronicX Thread Function2 7
+[ 8408.525488] In EmbeTronicX Thread Function1 8
+[ 8409.549491] In EmbeTronicX Thread Function2 9
+[ 8409.549679] In EmbeTronicX Thread Function1 10
+[ 8410.573495] In EmbeTronicX Thread Function2 11
+[ 8410.573510] In EmbeTronicX Thread Function1 12
+[ 8411.597461] In EmbeTronicX Thread Function1 13
+[ 8411.598440] In EmbeTronicX Thread Function2 14
+[ 8412.621464] In EmbeTronicX Thread Function1 15
+[ 8412.621485] In EmbeTronicX Thread Function2 16
+[ 8413.645443] In EmbeTronicX Thread Function1 17
+[ 8413.645477] In EmbeTronicX Thread Function2 18
+[ 8414.669442] In EmbeTronicX Thread Function2 19
+[ 8414.669459] In EmbeTronicX Thread Function1 20
+[ 8415.693445] In EmbeTronicX Thread Function1 21
+[ 8415.693467] In EmbeTronicX Thread Function2 22
+[ 8416.717441] In EmbeTronicX Thread Function2 23
+[ 8416.717455] In EmbeTronicX Thread Function1 24
+[ 8417.741481] In EmbeTronicX Thread Function1 25
+[ 8417.741783] In EmbeTronicX Thread Function2 26
+[ 8418.765477] In EmbeTronicX Thread Function2 27
+[ 8418.765708] In EmbeTronicX Thread Function1 28
+[ 8419.789688] In EmbeTronicX Thread Function2 29
+[ 8419.790451] In EmbeTronicX Thread Function1 30
+[ 8420.813455] In EmbeTronicX Thread Function2 31
+[ 8420.813487] In EmbeTronicX Thread Function1 32
+[ 8421.837444] In EmbeTronicX Thread Function2 33
+[ 8421.837485] In EmbeTronicX Thread Function1 34
+[ 8422.861509] In EmbeTronicX Thread Function1 35
+[ 8422.861530] In EmbeTronicX Thread Function2 36
+[ 8423.885452] In EmbeTronicX Thread Function1 37
+[ 8423.885474] In EmbeTronicX Thread Function2 38
+[ 8424.909506] In EmbeTronicX Thread Function2 39
+[ 8424.909525] In EmbeTronicX Thread Function1 40
+[ 8425.933467] In EmbeTronicX Thread Function1 41
+[ 8425.933507] In EmbeTronicX Thread Function2 42
+[ 8426.957479] In EmbeTronicX Thread Function1 43
+[ 8426.957494] In EmbeTronicX Thread Function2 44
+[ 8427.981450] In EmbeTronicX Thread Function1 45
+[ 8427.981478] In EmbeTronicX Thread Function2 46
+[ 8429.005717] In EmbeTronicX Thread Function2 47
+[ 8429.005733] In EmbeTronicX Thread Function1 48
+[ 8430.029478] In EmbeTronicX Thread Function2 49
+[ 8430.029496] In EmbeTronicX Thread Function1 50
+[ 8431.053793] In EmbeTronicX Thread Function1 51
+[ 8431.053807] In EmbeTronicX Thread Function2 52
+[ 8432.077486] In EmbeTronicX Thread Function1 53
+[ 8432.077503] In EmbeTronicX Thread Function2 54
+[ 8433.101456] In EmbeTronicX Thread Function2 55
+[ 8433.101488] In EmbeTronicX Thread Function1 56

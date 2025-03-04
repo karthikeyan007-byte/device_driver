@@ -1,0 +1,25 @@
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/HR_Timer$ sudo insmod timer.ko
+[sudo] password for karthik: 
+
+----------------------------------------------------------------------------------------------------------------------
+
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/HR_Timer$ sudo dmesg | tail -20
+
+[ 2374.301997] Initializing High-Resolution Timer Module
+[ 2374.352019] HRTimer Callback Executed
+
+----------------------------------------------------------------------------------------------------------------------
+
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/HR_Timer$ sudo rmmod timer
+
+----------------------------------------------------------------------------------------------------------------------
+
+
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/HR_Timer$ sudo dmesg | tail -20
+
+[ 2374.301997] Initializing High-Resolution Timer Module
+[ 2374.352019] HRTimer Callback Executed
+[ 3152.120387] Exiting High-Resolution Timer Module
+
+
+----------------------------------------------------------------------------------------------------------------------------

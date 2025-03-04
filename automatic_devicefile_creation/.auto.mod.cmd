@@ -1,0 +1,1 @@
+savedcmd_/home/karthik/device_driver_programs/automatic_devicefile_creation/auto.mod := printf '%s\n'   auto.o | awk '!x[$$0]++ { print("/home/karthik/device_driver_programs/automatic_devicefile_creation/"$$0) }' > /home/karthik/device_driver_programs/automatic_devicefile_creation/auto.mod

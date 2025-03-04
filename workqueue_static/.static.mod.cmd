@@ -1,0 +1,1 @@
+savedcmd_/home/karthik/device_driver_programs/workqueue_static/static.mod := printf '%s\n'   static.o | awk '!x[$$0]++ { print("/home/karthik/device_driver_programs/workqueue_static/"$$0) }' > /home/karthik/device_driver_programs/workqueue_static/static.mod

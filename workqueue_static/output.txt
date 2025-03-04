@@ -1,0 +1,49 @@
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/workqueue_static$ make
+
+make -C /lib/modules/6.8.0-52-generic/build M=/home/karthik/device_driver_programs/workqueue_static modules
+make[1]: Entering directory '/usr/src/linux-headers-6.8.0-52-generic'
+warning: the compiler differs from the one used to build the kernel
+  The kernel was built by: x86_64-linux-gnu-gcc-13 (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0
+  You are using:           gcc-13 (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0
+  CC [M]  /home/karthik/device_driver_programs/workqueue_static/static.o
+  MODPOST /home/karthik/device_driver_programs/workqueue_static/Module.symvers
+  CC [M]  /home/karthik/device_driver_programs/workqueue_static/static.mod.o
+  LD [M]  /home/karthik/device_driver_programs/workqueue_static/static.ko
+  BTF [M] /home/karthik/device_driver_programs/workqueue_static/static.ko
+Skipping BTF generation for /home/karthik/device_driver_programs/workqueue_static/static.ko due to unavailability of vmlinux
+make[1]: Leaving directory '/usr/src/linux-headers-6.8.0-52-generic'
+
+------------------------------------------------------------------------------------------------------------------------------------------
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/workqueue_static$ ls
+
+Makefile       Module.symvers  static.ko   static.mod.c  static.o
+modules.order  static.c        static.mod  static.mod.o
+
+------------------------------------------------------------------------------------------------------------------------------------------
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/workqueue_static$ sudo insmod static.ko
+[sudo] password for karthik: 
+------------------------------------------------------------------------------------------------------------------------------------------
+
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/workqueue_static$ sudo dmesg | tail -20
+
+[ 5447.713444] Initializing ETX Interrupt Driver with Static Workqueue
+[ 5447.713707] ETX Interrupt Driver with Static Workqueue Initialized Successfully!
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/workqueue_static$ echo 1 | sudo tee /sys/kernel/etx_sysfs/trigger_irq
+1
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/workqueue_static$ echo 1 | sudo tee /sys/kernel/etx_sysfs/trigger_irq
+1
+
+------------------------------------------------------------------------------------------------------------------------------------------
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/workqueue_static$ sudo dmesg | tail -20
+
+[ 5447.713707] ETX Interrupt Driver with Static Workqueue Initialized Successfully!
+[ 5540.457755] ETX: Triggering IRQ Manually
+[ 5540.457765] ETX Interrupt Handler: Interrupt Occurred! Count = 1
+[ 5540.457780] ETX Workqueue: Processing deferred work. IRQ Count = 1
+[ 5542.635623] ETX: Triggering IRQ Manually
+[ 5542.635632] ETX Interrupt Handler: Interrupt Occurred! Count = 2
+[ 5542.635883] ETX Workqueue: Processing deferred work. IRQ Count = 2
+------------------------------------------------------------------------------------------------------------------------------------------

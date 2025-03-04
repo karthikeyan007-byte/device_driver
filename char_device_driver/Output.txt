@@ -1,0 +1,66 @@
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/char_device$ ls
+char.c  Makefile  user_program.c
+
+----------------------------------------------------------------------------------------------------------------------------
+
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/char_device$ make
+
+make -C /lib/modules/6.8.0-52-generic/build M=/home/karthik/device_driver_programs/char_device modules
+make[1]: Entering directory '/usr/src/linux-headers-6.8.0-52-generic'
+warning: the compiler differs from the one used to build the kernel
+  The kernel was built by: x86_64-linux-gnu-gcc-13 (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0
+  You are using:           gcc-13 (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0
+  CC [M]  /home/karthik/device_driver_programs/char_device/char.o
+  MODPOST /home/karthik/device_driver_programs/char_device/Module.symvers
+  CC [M]  /home/karthik/device_driver_programs/char_device/char.mod.o
+  LD [M]  /home/karthik/device_driver_programs/char_device/char.ko
+  BTF [M] /home/karthik/device_driver_programs/char_device/char.ko
+Skipping BTF generation for /home/karthik/device_driver_programs/char_device/char.ko due to unavailability of vmlinux
+make[1]: Leaving directory '/usr/src/linux-headers-6.8.0-52-generic'
+
+----------------------------------------------------------------------------------------------------------------------------
+
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/char_device$ ls
+char.c   char.mod    char.mod.o  Makefile       Module.symvers
+char.ko  char.mod.c  char.o      modules.order  user_program.c
+
+
+----------------------------------------------------------------------------------------------------------------------------
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/char_device$ sudo insmod char.ko
+
+----------------------------------------------------------------------------------------------------------------------------
+
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/char_device$ ls /dev/my_char_device
+
+/dev/my_char_device
+
+----------------------------------------------------------------------------------------------------------------------------
+
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/char_device$ gcc user_program.c -o user_program
+
+----------------------------------------------------------------------------------------------------------------------------
+
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/char_device$ sudo ./user_program
+
+Device opened successfully: /dev/my_char_device
+Enter message to send: My name is Karthik
+Message written to device: My name is Karthik
+Message read from device: hello
+Device closed
+----------------------------------------------------------------------------------------------------------------------------
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/char_device$ sudo rmmod char
+
+----------------------------------------------------------------------------------------------------------------------------
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/char_device$ ls /dev/my_char_device
+ls: cannot access '/dev/my_char_device': No such file or directory
+----------------------------------------------------------------------------------------------------------------------------
+
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/char_device$ sudo dmesg
+
+[29902.238783] Character device driver loaded
+[30153.300506] Device opened
+[30164.222808] Received from user: My name is Karthik
+[30164.222829] Device closed
+[30391.130273] Character device driver unloaded
+
+----------------------------------------------------------------------------------------------------------------------------

@@ -1,0 +1,49 @@
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/workqueue_dynamic$ make
+
+make -C /lib/modules/6.8.0-52-generic/build M=/home/karthik/device_driver_programs/workqueue_dynamic modules
+make[1]: Entering directory '/usr/src/linux-headers-6.8.0-52-generic'
+warning: the compiler differs from the one used to build the kernel
+  The kernel was built by: x86_64-linux-gnu-gcc-13 (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0
+  You are using:           gcc-13 (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0
+  CC [M]  /home/karthik/device_driver_programs/workqueue_dynamic/dynamic.o
+  MODPOST /home/karthik/device_driver_programs/workqueue_dynamic/Module.symvers
+  CC [M]  /home/karthik/device_driver_programs/workqueue_dynamic/dynamic.mod.o
+  LD [M]  /home/karthik/device_driver_programs/workqueue_dynamic/dynamic.ko
+  BTF [M] /home/karthik/device_driver_programs/workqueue_dynamic/dynamic.ko
+Skipping BTF generation for /home/karthik/device_driver_programs/workqueue_dynamic/dynamic.ko due to unavailability of vmlinux
+make[1]: Leaving directory '/usr/src/linux-headers-6.8.0-52-generic'
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/workqueue_dynamic$ ls
+
+dynamic.c   dynamic.mod    dynamic.mod.o  Makefile       Module.symvers
+dynamic.ko  dynamic.mod.c  dynamic.o      modules.order
+
+------------------------------------------------------------------------------------------------------------------------------------------
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/workqueue_dynamic$ sudo insmod dynamic.ko
+[sudo] password for karthik: 
+
+------------------------------------------------------------------------------------------------------------------------------------------
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/workqueue_dynamic$ sudo dmesg | tail -20
+
+[ 7263.930462] Initializing ETX Interrupt Driver with Global Workqueue
+[ 7263.930729] ETX Interrupt Driver with Global Workqueue Initialized Successfully!
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/workqueue_dynamic$ echo 1 | sudo tee /sys/kernel/etx_sysfs/trigger_irq
+1
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/workqueue_dynamic$ echo 1 | sudo tee /sys/kernel/etx_sysfs/trigger_irq
+1
+------------------------------------------------------------------------------------------------------------------------------------------
+
+
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/workqueue_dynamic$ sudo dmesg | tail -20
+
+[ 7297.938129] ETX: Triggering IRQ Manually
+[ 7297.938139] ETX Interrupt Handler: Interrupt Occurred! Count = 1
+[ 7297.938155] ETX Workqueue: Processing deferred work. IRQ Count = 1
+[ 7301.060044] ETX: Triggering IRQ Manually
+[ 7301.060054] ETX Interrupt Handler: Interrupt Occurred! Count = 2
+[ 7301.060313] ETX Workqueue: Processing deferred work. IRQ Count = 2

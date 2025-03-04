@@ -1,0 +1,1 @@
+savedcmd_/home/karthik/device_driver_programs/interrupt/Module.symvers :=  scripts/mod/modpost -M -m -a      -o /home/karthik/device_driver_programs/interrupt/Module.symvers -T /home/karthik/device_driver_programs/interrupt/modules.order -i Module.symvers -e 

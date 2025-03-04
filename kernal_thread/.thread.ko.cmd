@@ -1,0 +1,1 @@
+savedcmd_/home/karthik/device_driver_programs/kernal_thread/thread.ko := ld -r -m elf_x86_64 -z noexecstack --no-warn-rwx-segments --build-id=sha1  -T scripts/module.lds -o /home/karthik/device_driver_programs/kernal_thread/thread.ko /home/karthik/device_driver_programs/kernal_thread/thread.o /home/karthik/device_driver_programs/kernal_thread/thread.mod.o

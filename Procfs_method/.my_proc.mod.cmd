@@ -1,0 +1,1 @@
+savedcmd_/home/karthik/device_driver_programs/Procfs_method/my_proc.mod := printf '%s\n'   my_proc.o | awk '!x[$$0]++ { print("/home/karthik/device_driver_programs/Procfs_method/"$$0) }' > /home/karthik/device_driver_programs/Procfs_method/my_proc.mod

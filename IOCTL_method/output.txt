@@ -1,0 +1,66 @@
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/IOCTL_method$ make
+
+make -C /lib/modules/6.8.0-52-generic/build M=/home/karthik/device_driver_programs/IOCTL_method modules
+make[1]: Entering directory '/usr/src/linux-headers-6.8.0-52-generic'
+warning: the compiler differs from the one used to build the kernel
+  The kernel was built by: x86_64-linux-gnu-gcc-13 (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0
+  You are using:           gcc-13 (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0
+  CC [M]  /home/karthik/device_driver_programs/IOCTL_method/device_driver.o
+  MODPOST /home/karthik/device_driver_programs/IOCTL_method/Module.symvers
+  CC [M]  /home/karthik/device_driver_programs/IOCTL_method/device_driver.mod.o
+  LD [M]  /home/karthik/device_driver_programs/IOCTL_method/device_driver.ko
+  BTF [M] /home/karthik/device_driver_programs/IOCTL_method/device_driver.ko
+Skipping BTF generation for /home/karthik/device_driver_programs/IOCTL_method/device_driver.ko due to unavailability of vmlinux
+make[1]: Leaving directory '/usr/src/linux-headers-6.8.0-52-generic'
+
+----------------------------------------------------------------------------------------------------------------------------
+
+
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/IOCTL_method$ ls
+
+device_driver.c    device_driver.mod.c  Makefile        user_application.c
+device_driver.ko   device_driver.mod.o  modules.order
+
+----------------------------------------------------------------------------------------------------------------------------
+
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/IOCTL_method$ sudo insmod device_driver.ko
+
+
+----------------------------------------------------------------------------------------------------------------------------
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/IOCTL_method$ ls /dev/my_device
+
+/dev/my_device
+
+
+----------------------------------------------------------------------------------------------------------------------------
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/IOCTL_method$  gcc user_application.c -o user_application
+
+----------------------------------------------------------------------------------------------------------------------------
+
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/IOCTL_method$ sudo ./user_application
+*********************************
+
+Opening Driver
+Enter the Value to send
+1234
+Writing Value to Driver
+Reading Value from Driver
+Value is 1234
+Closing Driver
+
+----------------------------------------------------------------------------------------------------------------------------
+
+
+
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/IOCTL_method$ sudo dmesg
+[41035.825199] Major = 507 Minor = 0 
+[41035.825329] Device Driver Insert...Done!!!
+[41043.981662] Device File Opened...!!!
+[41047.888524] Value = 1234
+[41047.888537] Device File Closed...!!!
+
+
+
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/IOCTL_method$ sudo rmmod device_driver
+
+----------------------------------------------------------------------------------------------------------------------------

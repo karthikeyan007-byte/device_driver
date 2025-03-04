@@ -1,0 +1,81 @@
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/spin_lock$ make
+
+make -C /lib/modules/6.8.0-52-generic/build M=/home/karthik/device_driver_programs/spin_lock modules
+make[1]: Entering directory '/usr/src/linux-headers-6.8.0-52-generic'
+warning: the compiler differs from the one used to build the kernel
+  The kernel was built by: x86_64-linux-gnu-gcc-13 (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0
+  You are using:           gcc-13 (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0
+  CC [M]  /home/karthik/device_driver_programs/spin_lock/spin.o
+  MODPOST /home/karthik/device_driver_programs/spin_lock/Module.symvers
+  CC [M]  /home/karthik/device_driver_programs/spin_lock/spin.mod.o
+  LD [M]  /home/karthik/device_driver_programs/spin_lock/spin.ko
+  BTF [M] /home/karthik/device_driver_programs/spin_lock/spin.ko
+Skipping BTF generation for /home/karthik/device_driver_programs/spin_lock/spin.ko due to unavailability of vmlinux
+make[1]: Leaving directory '/usr/src/linux-headers-6.8.0-52-generic'
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/spin_lock$ ls
+
+Makefile       Module.symvers  spin.ko   spin.mod.c  spin.o
+modules.order  spin.c          spin.mod  spin.mod.o
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/spin_lock$ sudo insmod spin.ko
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/spin_lock$ sudo dmesg
+
+
+[ 3052.306132] Major = 507 Minor = 0 
+[ 3052.306339] Kthread1 Created Successfully...
+[ 3052.306345] Spinlock is not locked in Thread Function1
+[ 3052.306352] Spinlock is locked in Thread Function1
+[ 3052.306356] In Thread Function1 1
+[ 3052.306379] Kthread2 Created Successfully...
+[ 3052.306382] Device Driver Insert...Done!!!
+[ 3052.306384] In Thread Function2 2
+[ 3053.313678] In Thread Function2 3
+[ 3053.313690] Spinlock is locked in Thread Function1
+[ 3053.313697] In Thread Function1 4
+[ 3054.337759] In Thread Function2 5
+[ 3054.337767] Spinlock is locked in Thread Function1
+[ 3054.337775] In Thread Function1 6
+[ 3055.361662] Spinlock is not locked in Thread Function1
+[ 3055.361662] In Thread Function2 7
+[ 3055.361675] Spinlock is locked in Thread Function1
+[ 3055.361679] In Thread Function1 8
+[ 3056.385349] Spinlock is not locked in Thread Function1
+[ 3056.385359] Spinlock is locked in Thread Function1
+[ 3056.385361] In Thread Function1 9
+[ 3056.385410] In Thread Function2 10
+[ 3057.409587] Spinlock is not locked in Thread Function1
+[ 3057.409587] In Thread Function2 11
+[ 3057.409599] Spinlock is locked in Thread Function1
+[ 3057.409603] In Thread Function1 12
+[ 3058.433357] Spinlock is not locked in Thread Function1
+[ 3058.433370] Spinlock is locked in Thread Function1
+[ 3058.433375] In Thread Function1 13
+[ 3058.433673] In Thread Function2 14
+[ 3059.457269] Spinlock is not locked in Thread Function1
+[ 3059.457279] In Thread Function2 15
+[ 3059.457284] Spinlock is locked in Thread Function1
+[ 3059.457286] In Thread Function1 16
+[ 3060.481249] In Thread Function2 17
+[ 3060.481288] Spinlock is not locked in Thread Function1
+[ 3060.481295] Spinlock is locked in Thread Function1
+[ 3060.481300] In Thread Function1 18
+[ 3061.505256] Spinlock is not locked in Thread Function1
+[ 3061.505269] Spinlock is locked in Thread Function1
+[ 3061.505273] In Thread Function1 19
+[ 3061.505279] In Thread Function2 20
+[ 3062.529246] In Thread Function2 21
+[ 3062.529262] Spinlock is locked in Thread Function1
+[ 3062.529270] In Thread Function1 22
+[ 3063.553404] Spinlock is not locked in Thread Function1
+[ 3063.553404] In Thread Function2 23
+[ 3063.553418] Spinlock is locked in Thread Function1
+[ 3063.553423] In Thread Function1 24
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/spin_lock$ 

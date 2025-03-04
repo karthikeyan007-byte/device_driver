@@ -1,0 +1,1 @@
+savedcmd_/home/karthik/device_driver_programs/read_write_spinlock/modules.order := {   echo /home/karthik/device_driver_programs/read_write_spinlock/rw_spin.o; :; } > /home/karthik/device_driver_programs/read_write_spinlock/modules.order

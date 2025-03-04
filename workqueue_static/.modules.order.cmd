@@ -1,0 +1,1 @@
+savedcmd_/home/karthik/device_driver_programs/workqueue_static/modules.order := {   echo /home/karthik/device_driver_programs/workqueue_static/static.o; :; } > /home/karthik/device_driver_programs/workqueue_static/modules.order

@@ -1,0 +1,38 @@
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/tasklet_dynamic$ sudo insmod tasklet_dynamic.ko
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/tasklet_dynamic$ sudo dmesg | tail -20
+
+
+[25943.544906] Initializing ETX Interrupt Driver with Dynamic Tasklet
+[25943.545169] ETX Interrupt Driver with Dynamic Tasklet Initialized Successfully!
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/tasklet_dynamic$ sudo su
+root@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:/home/karthik/device_driver_programs/tasklet_dynamic# echo 1 > /sys/kernel/etx_sysfs/trigger_irq
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/tasklet_dynamic$ sudo dmesg | tail -20
+
+[25943.544906] Initializing ETX Interrupt Driver with Dynamic Tasklet
+[25943.545169] ETX Interrupt Driver with Dynamic Tasklet Initialized Successfully!
+[26037.697771] ETX: Triggering IRQ Manually
+[26037.697780] ETX Interrupt Handler: Interrupt Occurred! Count = 1
+[26037.697797] ETX Tasklet: Processing deferred work. IRQ Count = 1
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/tasklet_dynamic$ sudo rmmod tasklet_dynamic
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/tasklet_dynamic$ sudo dmesg | tail -20
+
+[25943.544906] Initializing ETX Interrupt Driver with Dynamic Tasklet
+[25943.545169] ETX Interrupt Driver with Dynamic Tasklet Initialized Successfully!
+[26037.697771] ETX: Triggering IRQ Manually
+[26037.697780] ETX Interrupt Handler: Interrupt Occurred! Count = 1
+[26037.697797] ETX Tasklet: Processing deferred work. IRQ Count = 1
+[26251.432600] ETX Interrupt Driver with Dynamic Tasklet Unloaded
