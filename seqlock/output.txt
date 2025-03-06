@@ -1,0 +1,22 @@
+
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/seqlock$ sudo insmod seqlock_driver.ko
+[sudo] password for karthik: 
+
+
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/seqlock$ sudo dmesg | tail -20
+
+[ 4516.869347] SeqLock Demo Module Loaded
+[ 4516.869459] Writer: Updated temperature to 26°C
+[ 4516.869520] Reader 1: Read temperature = 26°C
+[ 4516.869587] Reader 2: Read temperature = 26°C
+[ 4517.378402] Reader 2: Read temperature = 26°C
+[ 4517.378404] Reader 1: Read temperature = 26°C
+[ 4517.882425] Reader 2: Read temperature = 26°C
+[ 4517.882432] Reader 1: Read temperature = 26°C
+[ 4517.899396] Writer: Updated temperature to 27°C
+[ 4518.387407] Reader 2: Read temperature = 27°C
+[ 4518.387443] Reader 1: Read temperature = 27°C
+[ 4518.890401] Reader 2: Read temperature = 27°C
+[ 4518.891395] Reader 1: Read temperature = 27°C
+
+

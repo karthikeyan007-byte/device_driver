@@ -1,0 +1,1 @@
+savedcmd_/home/karthik/device_driver_programs/export_symbol/driver2.mod := printf '%s\n'   driver2.o | awk '!x[$$0]++ { print("/home/karthik/device_driver_programs/export_symbol/"$$0) }' > /home/karthik/device_driver_programs/export_symbol/driver2.mod

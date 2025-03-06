@@ -1,0 +1,1 @@
+savedcmd_/home/karthik/device_driver_programs/misc_device_driver/misc_device_driver.mod := printf '%s\n'   misc_device_driver.o | awk '!x[$$0]++ { print("/home/karthik/device_driver_programs/misc_device_driver/"$$0) }' > /home/karthik/device_driver_programs/misc_device_driver/misc_device_driver.mod

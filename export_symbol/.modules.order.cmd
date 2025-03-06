@@ -1,0 +1,1 @@
+savedcmd_/home/karthik/device_driver_programs/export_symbol/modules.order := {   echo /home/karthik/device_driver_programs/export_symbol/driver1.o;   echo /home/karthik/device_driver_programs/export_symbol/driver2.o; :; } > /home/karthik/device_driver_programs/export_symbol/modules.order

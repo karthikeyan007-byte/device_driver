@@ -1,0 +1,53 @@
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/misc_device_driver$ ls
+
+Makefile               misc_device_driver.mod    misc_device_driver.o
+misc_device_driver.c   misc_device_driver.mod.c  modules.order
+misc_device_driver.ko  misc_device_driver.mod.o  Module.symvers
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/misc_device_driver$ sudo insmod misc_device_driver.ko
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/misc_device_driver$ sudo dmesg | tail -20
+
+[13060.646373] Misc device unregistered
+[13079.396161] Misc device registered as /dev/my_misc_device
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/misc_device_driver$ sudo echo "Hello Kernel" > /dev/my_misc_device
+bash: /dev/my_misc_device: Permission denied
+-----------------------------------------------------------------------------------------------------------------------------------------------
+
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/misc_device_driver$ sudo chmod 666 /dev/my_misc_device
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/misc_device_driver$ sudo echo "Hello Kernel" > /dev/my_misc_device
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/misc_device_driver$ cat /dev/my_misc_device
+
+Hello from misc device
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/misc_device_driver$ sudo dmesg | tail -20
+
+[13079.396161] Misc device registered as /dev/my_misc_device
+[13215.630295] Misc Device Received: Hello Kernel
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/misc_device_driver$ sudo rmmod misc_device_driver
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/misc_device_driver$ sudo dmesg | tail -20
+
+[13079.396161] Misc device registered as /dev/my_misc_device
+[13215.630295] Misc Device Received: Hello Kernel
+[13331.964501] Misc device unregistered

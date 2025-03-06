@@ -1,0 +1,53 @@
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/export_symbol$ ls
+driver1.c    driver1.mod.c  driver2.c    driver2.mod.c  Makefile
+driver1.ko   driver1.mod.o  driver2.ko   driver2.mod.o  modules.order
+driver1.mod  driver1.o      driver2.mod  driver2.o      Module.symvers
+
+
+
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/export_symbol$ sudo insmod driver2.ko
+[sudo] password for karthik: 
+insmod: ERROR: could not insert module driver2.ko: Unknown symbol in module
+
+
+
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/export_symbol$ sudo insmod driver1.ko
+
+
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/export_symbol$ sudo insmod driver2.ko
+
+
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/export_symbol$ sudo dmesg | tail -10
+
+[ 1348.880164] driver2: Unknown symbol etx_count (err -2)
+[ 1348.880209] driver2: Unknown symbol etx_shared_func (err -2)
+[ 1356.535826] Device Driver 1 Inserted
+[ 1360.925918] Device Driver 2 Inserted
+
+
+
+
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/export_symbol$ cat /proc/kallsyms | grep etx_shared_func
+0000000000000000 r __kstrtab_etx_shared_func	[driver1]
+0000000000000000 r __kstrtabns_etx_shared_func	[driver1]
+0000000000000000 r __ksymtab_etx_shared_func	[driver1]
+0000000000000000 r __crc_etx_shared_func	[driver1]
+0000000000000000 t __pfx_etx_shared_func	[driver1]
+0000000000000000 T etx_shared_func	[driver1]
+
+
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/export_symbol$ sudo rmmod driver1
+rmmod: ERROR: Module driver1 is in use by: driver2
+
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/export_symbol$ sudo rmmod driver2
+
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/export_symbol$ sudo rmmod driver1
+
+karthik@karthik-ASUS-TUF-Gaming-A15-FA506ICB-FA506ICB:~/device_driver_programs/export_symbol$ sudo dmesg | tail -10
+
+[ 1348.880164] driver2: Unknown symbol etx_count (err -2)
+[ 1348.880209] driver2: Unknown symbol etx_shared_func (err -2)
+[ 1356.535826] Device Driver 1 Inserted
+[ 1360.925918] Device Driver 2 Inserted
+[ 1666.764973] Device Driver 2 Removed
+[ 1673.975087] Device Driver 1 Removed

@@ -1,0 +1,1 @@
+savedcmd_/home/karthik/device_driver_programs/Atomic_variables/atomic.mod := printf '%s\n'   atomic.o | awk '!x[$$0]++ { print("/home/karthik/device_driver_programs/Atomic_variables/"$$0) }' > /home/karthik/device_driver_programs/Atomic_variables/atomic.mod
